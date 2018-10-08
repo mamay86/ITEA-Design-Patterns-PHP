@@ -1,0 +1,25 @@
+#!/usr/bin/env php
+<?php
+
+use App\CountryConfig;
+use App\CountryConfigProxy;
+use Symfony\Component\Yaml\Yaml;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+$config = new CountryConfig();
+$proxy = new CountryConfigProxy();
+
+$newConfig = [
+    'domain' => 'example.com.ua',
+    'languages' => ['ua', 'ru'],
+    'currency' => 'UAH',
+];
+
+\file_put_contents(
+    __DIR__ . '/../data/ua.yaml',
+    Yaml::dump($newConfig)
+);
+
+var_dump($config->getConfig());
+var_dump($proxy->getConfig());

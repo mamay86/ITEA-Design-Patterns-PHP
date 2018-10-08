@@ -1,0 +1,5 @@
+domain: example.com.ua
+languages:
+    - ua
+    - ru
+currency: UAH
